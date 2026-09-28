@@ -1,0 +1,8 @@
+Sing-UI is distributed under the GNU General Public License v3.0 or later (GPL-3.0-or-later).
+
+This project builds on GPL-licensed upstream projects:
+- https://github.com/alireza0/s-ui
+- https://github.com/alireza0/s-ui-frontend
+- https://github.com/MHSanaei/3x-ui
+
+See upstream repositories for their respective copyright and license notices.
