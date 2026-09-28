@@ -46,8 +46,8 @@ cd sing-ui
 ```
 patches/                 UI overrides applied to S-UI frontend
 scripts/                 build/install/update helpers
-upstream/s-ui            S-UI source (submodule)
-upstream/3x-ui           3X-UI reference source (submodule)
+upstream/s-ui            downloaded S-UI build tree (created by scripts/build.sh)
+patches/                Sing-UI presentation overrides
 ```
 
 ## Status
