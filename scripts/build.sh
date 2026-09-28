@@ -3,13 +3,21 @@ set -Eeuo pipefail
 
 ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 SUI="$ROOT/upstream/s-ui"
+SUI_REF="${SUI_REF:-main}"
 
-[[ -d "$SUI" ]] || { echo "S-UI submodule missing"; exit 1; }
+if [[ ! -d "$SUI/.git" ]]; then
+  mkdir -p "$ROOT/upstream"
+  rm -rf "$SUI"
+  git clone --recurse-submodules --branch "$SUI_REF" https://github.com/alireza0/s-ui.git "$SUI"
+else
+  git -C "$SUI" fetch --all --tags
+  git -C "$SUI" checkout "$SUI_REF"
+  git -C "$SUI" submodule update --init --recursive
+fi
 
-cd "$SUI"
-git submodule update --init --recursive
 bash "$ROOT/scripts/apply-theme.sh"
 
+cd "$SUI"
 if [[ ! -d frontend/node_modules ]]; then
   (cd frontend && npm install)
 fi
