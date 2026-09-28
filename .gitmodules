@@ -1,0 +1,9 @@
+[submodule "upstream/s-ui"]
+	path = upstream/s-ui
+	url = https://github.com/alireza0/s-ui.git
+	branch = main
+
+[submodule "upstream/3x-ui"]
+	path = upstream/3x-ui
+	url = https://github.com/MHSanaei/3x-ui.git
+	branch = main
