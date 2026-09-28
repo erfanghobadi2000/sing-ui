@@ -1,0 +1,195 @@
+:root {
+  --sing-bg: #f4f6f8;
+  --sing-card: #ffffff;
+  --sing-text: #17202a;
+  --sing-muted: #6b7280;
+  --sing-border: rgba(15, 23, 42, .08);
+  --sing-primary: #1677ff;
+  --sing-primary-soft: rgba(22,119,255,.10);
+}
+
+body {
+  background: var(--sing-bg) !important;
+}
+
+.sing-ui-app {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(22,119,255,.05), transparent 28%),
+    radial-gradient(circle at 95% 10%, rgba(99,102,241,.04), transparent 24%),
+    var(--sing-bg) !important;
+}
+
+.sing-ui-topbar {
+  background: rgba(255,255,255,.92) !important;
+  border-bottom: 1px solid var(--sing-border) !important;
+  backdrop-filter: blur(14px);
+}
+
+.sing-ui-topbar-title {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.sing-ui-kicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--sing-primary);
+}
+
+.sing-ui-page {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--sing-text);
+  margin-top: 4px;
+}
+
+.top-action {
+  border-radius: 12px !important;
+}
+
+.sing-ui-drawer {
+  background: #111827 !important;
+  color: #fff !important;
+  border: 0 !important;
+}
+
+.sing-ui-brand {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 18px;
+}
+
+.sing-ui-brand-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  color: white;
+  background: linear-gradient(135deg, #1677ff, #615fff);
+  box-shadow: 0 8px 25px rgba(22,119,255,.25);
+}
+
+.sing-ui-brand-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sing-ui-brand-copy strong {
+  font-size: 15px;
+  color: #fff;
+}
+
+.sing-ui-brand-copy span {
+  font-size: 11px;
+  color: rgba(255,255,255,.55);
+  margin-top: 2px;
+}
+
+.sing-ui-nav {
+  padding: 10px 12px !important;
+}
+
+.sing-ui-nav .v-list-item {
+  margin: 4px 0;
+  border-radius: 12px;
+  color: rgba(255,255,255,.72) !important;
+}
+
+.sing-ui-nav .v-list-item:hover {
+  background: rgba(255,255,255,.06);
+  color: #fff !important;
+}
+
+.sing-ui-nav .v-list-item--active {
+  background: linear-gradient(90deg, rgba(22,119,255,.25), rgba(99,102,241,.12)) !important;
+  color: #fff !important;
+  box-shadow: inset 3px 0 0 #1677ff;
+}
+
+.sing-ui-drawer-footer {
+  padding: 12px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.sing-ui-drawer-footer .v-btn {
+  color: rgba(255,255,255,.70) !important;
+  justify-content: flex-start;
+  border-radius: 12px;
+}
+
+.v-main {
+  background: transparent !important;
+}
+
+.v-card {
+  border-radius: 14px !important;
+  border: 1px solid var(--sing-border) !important;
+  box-shadow: 0 6px 24px rgba(15,23,42,.045) !important;
+  background: var(--sing-card) !important;
+}
+
+.v-btn {
+  border-radius: 10px !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-weight: 600 !important;
+}
+
+.v-text-field .v-field,
+.v-textarea .v-field,
+.v-select .v-field,
+.v-autocomplete .v-field {
+  border-radius: 10px !important;
+}
+
+.v-chip {
+  border-radius: 9px !important;
+}
+
+.v-table {
+  border-radius: 12px;
+}
+
+@media (max-width: 600px) {
+  .sing-ui-page {
+    font-size: 16px;
+  }
+
+  .v-main {
+    padding-bottom: 12px;
+  }
+
+  .v-card {
+    border-radius: 12px !important;
+  }
+}
+
+.v-theme--dark {
+  --sing-bg: #0f1115;
+  --sing-card: #181b21;
+  --sing-text: #f3f4f6;
+  --sing-muted: #9ca3af;
+  --sing-border: rgba(255,255,255,.08);
+}
+
+.v-theme--dark body,
+.v-theme--dark .sing-ui-app {
+  background: #0f1115 !important;
+}
+
+.v-theme--dark .sing-ui-topbar {
+  background: rgba(17,24,39,.88) !important;
+  border-bottom-color: rgba(255,255,255,.08) !important;
+}
+
+.v-theme--dark .sing-ui-page {
+  color: #f3f4f6;
+}
