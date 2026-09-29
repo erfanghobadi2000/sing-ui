@@ -29,13 +29,13 @@ export DEBIAN_FRONTEND=noninteractive
 install_base_deps() {
   if command -v apt-get >/dev/null 2>&1; then
     apt-get update
-    apt-get install -y --no-install-recommends git curl ca-certificates build-essential gcc g++ make pkg-config nodejs npm
+    apt-get install -y --no-install-recommends git curl ca-certificates build-essential gcc g++ make pkg-config xz-utils
   elif command -v dnf >/dev/null 2>&1; then
-    dnf install -y git curl ca-certificates gcc gcc-c++ make nodejs npm
+    dnf install -y git curl ca-certificates gcc gcc-c++ make xz
   elif command -v yum >/dev/null 2>&1; then
-    yum install -y git curl ca-certificates gcc gcc-c++ make nodejs npm
+    yum install -y git curl ca-certificates gcc gcc-c++ make xz
   elif command -v apk >/dev/null 2>&1; then
-    apk add --no-cache git curl ca-certificates build-base nodejs npm bash
+    apk add --no-cache git curl ca-certificates build-base xz bash
   else
     die "Unsupported package manager. Install git, curl, gcc, make, nodejs and npm manually."
   fi
@@ -69,7 +69,7 @@ install -m 0755 "$UPSTREAM_DIR/sui" /usr/local/bin/sing-ui-server
 install -m 0755 "$INSTALL_DIR/scripts/sing-ui.sh" /usr/local/bin/s-ui
 ln -sfn /usr/local/bin/s-ui /usr/bin/s-ui
 
-cat > "$SERVICE_FILE" <<'UNIT'
+cat > "$SERVICE_FILE" <<UNIT
 [Unit]
 Description=Sing-UI panel (S-UI + Sing-Box)
 After=network-online.target
@@ -77,7 +77,7 @@ Wants=network-online.target
 
 [Service]
 Type=simple
-WorkingDirectory=/usr/local/src/sing-ui/upstream/s-ui
+WorkingDirectory=$UPSTREAM_DIR
 Environment=SUI_DB_FOLDER=db
 ExecStart=/usr/local/bin/sing-ui-server
 Restart=on-failure
@@ -89,7 +89,8 @@ WantedBy=multi-user.target
 UNIT
 
 systemctl daemon-reload
-systemctl enable --now sing-ui
+systemctl enable sing-ui
+systemctl restart sing-ui
 
 info "Installation complete."
 echo
