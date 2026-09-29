@@ -11,7 +11,7 @@ case "$arch" in
   aarch64|arm64) NODE_ARCH="arm64"; GO_ARCH="arm64" ;;
   armv7l|armv7) NODE_ARCH="armv7l"; GO_ARCH="armv6l" ;;
   armv6l|armv6) NODE_ARCH="armv6l"; GO_ARCH="armv6l" ;;
-  i386|i686) NODE_ARCH="x86"; GO_ARCH="386" ;;
+  i386|i686) echo "Node.js 22 official Linux x86 binaries are not published; install a supported 64-bit userspace." >&2; exit 1 ;;
   s390x) NODE_ARCH="s390x"; GO_ARCH="s390x" ;;
   ppc64le) NODE_ARCH="ppc64le"; GO_ARCH="ppc64le" ;;
   *) echo "Unsupported Linux architecture: $arch" >&2; exit 1 ;;
@@ -19,7 +19,7 @@ esac
 
 need_node() {
   command -v node >/dev/null 2>&1 || return 0
-  node -e 'process.exit(Number(process.versions.node.split(".")[0]) >= 20 ? 0 : 1)' >/dev/null 2>&1
+  node -e 'const v=process.versions.node.split(".").map(Number); process.exit(v[0]>20 || (v[0]===20 && v[1]>=19) || v[0]>=22 ? 0 : 1)' >/dev/null 2>&1
 }
 
 install_node() {
