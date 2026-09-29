@@ -31,6 +31,6 @@ cp -R frontend/dist/* web/html/
 . "$SUI/build-tags.sh"
 TAGS=$(tags_for dev)
 LDFLAGS=$(ldflags_for dev)
-go build -ldflags "$LDFLAGS -extldflags \"-Wl,-no_warn_duplicate_libraries\"" -tags "$TAGS" -o sui main.go
+go build -ldflags "$LDFLAGS" -tags "$TAGS" -o sui main.go
 
 echo "Build complete: $SUI/sui"
