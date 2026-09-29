@@ -2,7 +2,7 @@
 set -Eeuo pipefail
 
 NODE_VERSION="${NODE_VERSION:-22.23.3}"
-GO_VERSION="${GO_VERSION:-1.26.7}"
+GO_VERSION="${GO_VERSION:-1.26.8}"
 TOOLCHAIN_ROOT="/opt/sing-ui-toolchain"
 
 arch="$(uname -m)"
@@ -19,7 +19,7 @@ esac
 
 has_supported_node() {
   command -v node >/dev/null 2>&1 || return 1
-  node -e 'const v=process.versions.node.split(".").map(Number); process.exit((v[0] > 20 || (v[0] === 20 && v[1] >= 19) || v[0] >= 22) ? 0 : 1)' >/dev/null 2>&1
+  node -e 'const v=process.versions.node.split(".").map(Number); process.exit((v[0] > 22 || (v[0] === 22 && v[1] >= 12) || (v[0] === 20 && v[1] >= 19)) ? 0 : 1)' >/dev/null 2>&1
 }
 
 install_node() {
