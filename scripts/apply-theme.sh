@@ -15,6 +15,7 @@ copy_patch() {
 copy_patch "layouts/default/Default.vue" "layouts/default/Default.vue"
 copy_patch "layouts/default/AppBar.vue" "layouts/default/AppBar.vue"
 copy_patch "layouts/default/Drawer.vue" "layouts/default/Drawer.vue"
+copy_patch "views/Login.vue" "views/Login.vue"
 copy_patch "styles/sing-ui.scss" "styles/sing-ui.scss"
 
 python3 - "$SUI/frontend/src/main.ts" <<'PY'
