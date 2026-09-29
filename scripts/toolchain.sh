@@ -17,9 +17,9 @@ case "$arch" in
   *) echo "Unsupported Linux architecture: $arch" >&2; exit 1 ;;
 esac
 
-need_node() {
-  command -v node >/dev/null 2>&1 || return 0
-  node -e 'const v=process.versions.node.split(".").map(Number); process.exit(v[0]>20 || (v[0]===20 && v[1]>=19) || v[0]>=22 ? 0 : 1)' >/dev/null 2>&1
+has_supported_node() {
+  command -v node >/dev/null 2>&1 || return 1
+  node -e 'const v=process.versions.node.split(".").map(Number); process.exit((v[0] > 20 || (v[0] === 20 && v[1] >= 19) || v[0] >= 22) ? 0 : 1)' >/dev/null 2>&1
 }
 
 install_node() {
@@ -40,8 +40,8 @@ install_node() {
   [[ -x "$TOOLCHAIN_ROOT/node/bin/npx" ]] && ln -sfn "$TOOLCHAIN_ROOT/node/bin/npx" /usr/local/bin/npx
 }
 
-need_go() {
-  command -v go >/dev/null 2>&1 || return 0
+has_go() {
+  command -v go >/dev/null 2>&1 || return 1
   go version >/dev/null 2>&1
 }
 
@@ -56,11 +56,11 @@ install_go() {
   ln -sfn /usr/local/go/bin/gofmt /usr/local/bin/gofmt
 }
 
-if ! need_node; then
+if ! has_supported_node; then
   install_node
 fi
 
-if ! need_go; then
+if ! has_go; then
   install_go
 fi
 
