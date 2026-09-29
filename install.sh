@@ -65,8 +65,8 @@ git -C "$INSTALL_DIR" submodule update --init --recursive
 bash "$INSTALL_DIR/scripts/apply-theme.sh"
 bash "$INSTALL_DIR/scripts/build.sh"
 
+install -m 0755 "$UPSTREAM_DIR/sui" /usr/local/bin/sing-ui-server
 install -m 0755 "$INSTALL_DIR/scripts/sing-ui.sh" /usr/local/bin/s-ui
-install -m 0755 "$INSTALL_DIR/scripts/sing-ui.sh" /usr/local/bin/sing-ui
 ln -sfn /usr/local/bin/s-ui /usr/bin/s-ui
 
 cat > "$SERVICE_FILE" <<'UNIT'
@@ -79,7 +79,7 @@ Wants=network-online.target
 Type=simple
 WorkingDirectory=/usr/local/src/sing-ui/upstream/s-ui
 Environment=SUI_DB_FOLDER=db
-ExecStart=/usr/local/bin/sing-ui
+ExecStart=/usr/local/bin/sing-ui-server
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=1048576
