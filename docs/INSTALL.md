@@ -27,17 +27,21 @@ S-UI's default installation credentials are `admin / admin`. Change the password
 ## Build from source
 
 ```bash
-git clone --recurse-submodules https://github.com/erfanghobadi2000/sing-ui.git
+git clone https://github.com/erfanghobadi2000/sing-ui.git
 cd sing-ui
 bash scripts/build.sh
 ```
 
 ## Updating
 
-```sudo /usr/local/src/sing-ui/scripts/update.sh```
+```bash
+sudo /usr/local/src/sing-ui/scripts/update.sh
+```
 
 ## Uninstalling
 
-```sudo /usr/local/src/sing-ui/scripts/uninstall.sh```
+```bash
+sudo /usr/local/src/sing-ui/scripts/uninstall.sh
+```
 
 The uninstall script removes the service and launcher but deliberately leaves the source and database directory in place.
