@@ -55,6 +55,9 @@ else
   git clone --recurse-submodules --branch "$REF" "$REPO" "$INSTALL_DIR"
 fi
 
+# Install the supported build toolchain after the repository exists.
+bash "$INSTALL_DIR/scripts/toolchain.sh"
+
 git -C "$INSTALL_DIR" submodule update --init --recursive
 
 [[ -d "$UPSTREAM_DIR" ]] || die "S-UI source was not initialized"
@@ -62,8 +65,9 @@ git -C "$INSTALL_DIR" submodule update --init --recursive
 bash "$INSTALL_DIR/scripts/apply-theme.sh"
 bash "$INSTALL_DIR/scripts/build.sh"
 
-install -m 0755 "$UPSTREAM_DIR/sui" /usr/local/bin/sing-ui
+install -m 0755 "$INSTALL_DIR/scripts/sing-ui.sh" /usr/local/bin/s-ui
 install -m 0755 "$INSTALL_DIR/scripts/sing-ui.sh" /usr/local/bin/sing-ui
+ln -sfn /usr/local/bin/s-ui /usr/bin/s-ui
 
 cat > "$SERVICE_FILE" <<'UNIT'
 [Unit]
@@ -90,5 +94,5 @@ systemctl enable --now sing-ui
 info "Installation complete."
 echo
 echo "Check: systemctl status sing-ui --no-pager"
-echo "Menu:  sing-ui"
+echo "Menu:  s-ui"
 echo "Logs:  journalctl -u sing-ui -e --no-pager"
