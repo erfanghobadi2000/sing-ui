@@ -4,7 +4,7 @@ Sing-UI deliberately separates **presentation** from the **Sing-Box control plan
 
 ## Source of truth
 
-The S-UI submodule remains authoritative for:
+The S-UI upstream source remains authoritative for:
 
 - authentication and sessions
 - database schema
@@ -15,7 +15,7 @@ The S-UI submodule remains authoritative for:
 - Sing-Box process lifecycle
 - API endpoints
 
-The 3X-UI repository is included as a reference submodule for UI/UX comparison and for tracking upstream design changes. Xray is not introduced into the runtime.
+The 3X-UI repository is used only as a design reference. Xray is not introduced into the runtime.
 
 ## Frontend strategy
 
