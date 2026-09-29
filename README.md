@@ -11,7 +11,11 @@ A Sing-Box based panel with a modern UI inspired by the visual language of 3X-UI
 
 The core is intentionally kept on the S-UI side. This project does not replace Sing-Box with Xray.
 
+The original S-UI terminal management command (`s-ui`) is preserved. Its keyboard-driven terminal menu and backend management behavior are not replaced by this project. Only the web panel presentation is customized.
+
 ## One-command installation
+
+The installer builds the S-UI backend from source so the customized web assets are embedded into the final binary. The first installation therefore takes longer than downloading a prebuilt binary, but the runtime remains the S-UI/Sing-Box stack.
 
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/erfanghobadi2000/sing-ui/main/install.sh)
