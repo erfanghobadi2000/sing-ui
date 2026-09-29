@@ -40,7 +40,7 @@ curl -fsSL https://raw.githubusercontent.com/erfanghobadi2000/sing-ui/main/insta
 ## Developer build
 
 ```bash
-git clone --recurse-submodules https://github.com/erfanghobadi2000/sing-ui.git
+git clone https://github.com/erfanghobadi2000/sing-ui.git
 cd sing-ui
 ./scripts/build.sh
 ```
@@ -50,8 +50,8 @@ cd sing-ui
 ```
 patches/                 UI overrides applied to S-UI frontend
 scripts/                 build/install/update helpers
-upstream/s-ui            downloaded S-UI build tree (created by scripts/build.sh)
-patches/                Sing-UI presentation overrides
+upstream/s-ui            downloaded S-UI build tree
+patches/                 Sing-UI presentation overrides
 ```
 
 ## Status
@@ -60,4 +60,4 @@ This repository is the integration layer. Upstream S-UI remains the source of tr
 
 ## License
 
-GPL-3.0-or-later. Upstream license and attribution notices are preserved through the included submodules.
+GPL-3.0-or-later. Upstream license and attribution notices are preserved through the downloaded upstream source trees.
