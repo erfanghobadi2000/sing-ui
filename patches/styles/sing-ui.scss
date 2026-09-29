@@ -193,3 +193,188 @@ body {
 .v-theme--dark .sing-ui-page {
   color: #f3f4f6;
 }
+
+
+/* 3X-UI-inspired application surface */
+.sing-ui-app .v-main {
+  min-height: 100vh;
+  padding-top: 70px !important;
+  background: transparent !important;
+}
+
+.sing-ui-app .v-container {
+  max-width: 1480px;
+}
+
+.sing-ui-app .v-card {
+  overflow: hidden;
+}
+
+.sing-ui-app .v-card-title {
+  font-weight: 750;
+  letter-spacing: -.01em;
+  padding: 16px 18px 10px;
+}
+
+.sing-ui-app .v-card-text {
+  padding: 16px 18px 18px;
+}
+
+.sing-ui-app .v-card-actions {
+  padding: 10px 18px 16px;
+}
+
+.sing-ui-app .v-btn--variant-flat {
+  box-shadow: none !important;
+}
+
+.sing-ui-app .v-btn--variant-tonal {
+  background: var(--sing-primary-soft) !important;
+}
+
+.sing-ui-app .v-input {
+  margin-bottom: 8px;
+}
+
+.sing-ui-app .v-field {
+  min-height: 44px;
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.sing-ui-app .v-field--focused {
+  box-shadow: 0 0 0 3px rgba(22,119,255,.10);
+}
+
+.sing-ui-app .v-table > .v-table__wrapper > table > tbody > tr {
+  transition: background .15s ease;
+}
+
+.sing-ui-app .v-table > .v-table__wrapper > table > tbody > tr:hover {
+  background: rgba(22,119,255,.045);
+}
+
+.sing-ui-app .v-chip {
+  font-weight: 650;
+}
+
+.sing-ui-app .v-alert {
+  border-radius: 12px !important;
+}
+
+.sing-ui-app .v-expansion-panel {
+  border-radius: 12px !important;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.sing-ui-app .v-tabs {
+  margin-bottom: 10px;
+}
+
+.sing-ui-app .v-window {
+  border-radius: 12px;
+}
+
+.sing-ui-drawer .v-navigation-drawer__content {
+  scrollbar-width: thin;
+}
+
+.sing-ui-drawer.v-navigation-drawer--rail .sing-ui-brand-copy {
+  display: none;
+}
+
+.sing-ui-drawer.v-navigation-drawer--rail .sing-ui-brand {
+  justify-content: center;
+  padding-inline: 0;
+}
+
+.sing-ui-drawer.v-navigation-drawer--rail .sing-ui-nav {
+  padding-inline: 10px !important;
+}
+
+.sing-ui-drawer.v-navigation-drawer--rail .v-list-item {
+  justify-content: center;
+}
+
+.sing-ui-drawer.v-navigation-drawer--rail .v-list-item__prepend {
+  margin-inline-end: 0 !important;
+}
+
+.sing-ui-drawer.v-navigation-drawer--rail .sing-ui-drawer-footer .v-btn {
+  justify-content: center;
+  padding-inline: 0;
+}
+
+.sing-ui-brand-mark {
+  position: relative;
+}
+
+.sing-ui-brand-mark::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,.09);
+}
+
+@media (min-width: 601px) {
+  .sing-ui-app .v-main {
+    padding-inline-start: 82px !important;
+    transition: padding-inline-start .2s ease;
+  }
+
+  body:has(.sing-ui-drawer:not(.v-navigation-drawer--rail)) .sing-ui-app .v-main {
+    padding-inline-start: 250px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .sing-ui-app .v-main {
+    padding-top: 70px !important;
+    padding-inline: 8px !important;
+  }
+
+  .sing-ui-app .v-card-title {
+    padding-inline: 14px;
+  }
+
+  .sing-ui-app .v-card-text {
+    padding-inline: 14px;
+  }
+
+  .sing-ui-topbar-title {
+    min-width: 0;
+  }
+
+  .sing-ui-page {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 48vw;
+  }
+}
+
+.v-theme--dark .sing-ui-app {
+  background:
+    radial-gradient(circle at 8% 0%, rgba(59,130,246,.10), transparent 24%),
+    radial-gradient(circle at 92% 8%, rgba(99,102,241,.07), transparent 22%),
+    #0f1115 !important;
+}
+
+.v-theme--dark .sing-ui-topbar-title .sing-ui-kicker {
+  color: #78a9ff;
+}
+
+.v-theme--dark .sing-ui-app .v-card {
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.22),
+    inset 0 1px 0 rgba(255,255,255,.025) !important;
+}
+
+.v-theme--dark .sing-ui-app .v-field {
+  background: rgba(255,255,255,.025);
+}
+
+.v-theme--dark .sing-ui-app .v-table > .v-table__wrapper > table > tbody > tr:hover {
+  background: rgba(75,130,255,.06);
+}
